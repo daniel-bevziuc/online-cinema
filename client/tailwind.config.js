@@ -5,8 +5,8 @@ const primaryColor = '#e30b13'
 
 module.exports = {
   content: [
-    "./app/**/*.{js, ts, jsx, tsx}",
-    "./app/components/**/*.{js, ts, jsx, tsx}",
+    "./pages/**/*.{js,ts,jsx,tsx}",
+    "./app/components/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
     colors: {

@@ -10,8 +10,8 @@
     "^@/store/(.*)$",
     "^@/hooks/(.*)$",
     "^@/services/(.*)$",
-    "^@/components/(.*)$",
     "^@/screens/(.*)$",
+    "^@/components/(.*)$",
     "^@/ui/(.*)$",
     "^@/shared/(.*)$",
     "^@/utils/(.*)$",
@@ -22,10 +22,5 @@
     "^@(.scss)$"
   ],
   "importOrderSeparation": true,
-  "importOrderSortSpecifiers": true,
-  "importOrderCaseInsensitive": true,
-  "importOrderParserPlugins": [
-    "jsx",
-    "typescript"
-  ]
+  "importOrderSortSpecifiers": true
 }
