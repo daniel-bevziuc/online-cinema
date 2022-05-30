@@ -4,7 +4,7 @@ import { useRouter } from 'next/router'
 import { FC } from 'react'
 
 import styles from './Menu.module.scss'
-import { IMenuItem } from './MenuItem.interface'
+import { IMenuItem } from './menu.interface'
 
 import MaterialIcon from '@/components/ui/MaterialIcon'
 
@@ -13,7 +13,7 @@ const MenuItem: FC<{ item: IMenuItem }> = ({ item }) => {
 	return (
 		<li
 			className={cn({
-				[styles.active]: asPath === item.link,
+				[styles.active]: asPath === item.link
 			})}
 		>
 			<Link href={item.link}>

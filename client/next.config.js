@@ -1,8 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  reactStrictMode: true,
   poweredByHeader: false,
   optimizeFonts: false,
+
   env: {
     APP_URL: process.env.REACT_APP_URL,
     APP_ENV: process.env.REACT_APP_ENV,
@@ -10,16 +10,29 @@ const nextConfig = {
   },
 
   async rewrites() {
-    return [
-      {
-        source: '/api/:paths*',
-        destination: 'http://localhost:4200/api/:path*'
-      },
-      {
-        source: '/uploads/:paths*',
-        destination: 'http://localhost:4200/uploads/:path*'
-      }
-    ]
+    console.log('rewrites called');
+    // return [
+    //   {
+    //     source: '/api/:paths*',
+    //     destination: 'http://localhost:4200/api/:path*'
+    //   },
+    //   {
+    //     source: '/uploads/:paths*',
+    //     destination: 'http://localhost:4200/uploads/:path*'
+    //   }
+    // ]
+
+    return process.env.REACT_APP_ENV === 'development' ?
+      [
+        {
+          source: '/api/:paths*',
+          destination: 'http://localhost:4200/api/:path*'
+        },
+        {
+          source: '/uploads/:paths*',
+          destination: 'http://localhost:4200/uploads/:path*'
+        }
+      ] : []
   }
 }
 

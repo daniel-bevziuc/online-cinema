@@ -1,13 +1,14 @@
 import { FC } from 'react'
 
 import Menu from './Menu'
-import { firstMenu, userMenu } from './menu.data'
+import { firstMenu, userMenu } from './Menu.data'
+import GenresMenu from './genres/GenresMenu'
 
 const MenuContainer: FC = () => {
 	return (
 		<div>
 			<Menu menu={firstMenu} />
-			{/* Genres Menu */}
+			<GenresMenu />
 			<Menu menu={userMenu} />
 		</div>
 	)
