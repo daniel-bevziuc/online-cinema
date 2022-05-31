@@ -11,16 +11,6 @@ const nextConfig = {
 
   async rewrites() {
     console.log('rewrites called');
-    // return [
-    //   {
-    //     source: '/api/:paths*',
-    //     destination: 'http://localhost:4200/api/:path*'
-    //   },
-    //   {
-    //     source: '/uploads/:paths*',
-    //     destination: 'http://localhost:4200/uploads/:path*'
-    //   }
-    // ]
 
     return process.env.REACT_APP_ENV === 'development' ?
       [
