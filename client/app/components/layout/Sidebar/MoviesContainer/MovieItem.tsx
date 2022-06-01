@@ -1,4 +1,4 @@
-import Image from 'next/Image'
+import Image from 'next/image'
 import Link from 'next/link'
 import { FC } from 'react'
 import { getGenresListEach } from 'utils/movie/getGenresList'
@@ -17,11 +17,11 @@ const MovieItem: FC<{ movie: IMovie }> = ({ movie }) => {
 			<Link href={getMovieUrl(movie.slug)}>
 				<a>
 					<Image
-						src={movie.poster}
 						alt={movie.title}
-						draggable={false}
 						width={65}
 						height={97}
+						src={movie.poster}
+						draggable={false}
 						priority
 					/>
 				</a>

@@ -1,7 +1,7 @@
 import { FC } from 'react'
 import { useQuery } from 'react-query'
 
-import MovieList from './MovieList'
+import MovieList from '../MovieList'
 
 import { MovieService } from '@/services/movie.service'
 
