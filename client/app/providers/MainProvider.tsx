@@ -1,6 +1,12 @@
 import { FC } from 'react'
 import { QueryClient, QueryClientProvider } from 'react-query'
 import { ReactQueryDevtools } from 'react-query/devtools'
+import { Provider } from 'react-redux'
+
+import HeadProvider from './HeadProvider/HeadProvider'
+import ReduxToast from './ReduxToast'
+
+import { store } from '@/store/store'
 
 import Layout from '@/components/layout/Layout'
 
@@ -18,10 +24,15 @@ type IProviderProps = {
 
 const MainProvider: FC<IProviderProps> = ({ children }) => {
 	return (
-		<QueryClientProvider client={queryClient}>
-			<ReactQueryDevtools initialIsOpen={false} />
-			<Layout>{children}</Layout>
-		</QueryClientProvider>
+		<HeadProvider>
+			<Provider store={store}>
+				<QueryClientProvider client={queryClient}>
+					<ReactQueryDevtools initialIsOpen={false} />
+					<ReduxToast />
+					<Layout>{children}</Layout>
+				</QueryClientProvider>
+			</Provider>
+		</HeadProvider>
 	)
 }
 export default MainProvider
