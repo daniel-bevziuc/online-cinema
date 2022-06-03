@@ -10,7 +10,7 @@ export const useSearch = () => {
 	const debouncedSearch = useDebounce(searchTerm, 500)
 
 	const { isSuccess, data } = useQuery(
-		['search movie list'],
+		['search movie list', debouncedSearch],
 		() => MovieService.getAll(debouncedSearch),
 		{
 			select: ({ data }) => data,
