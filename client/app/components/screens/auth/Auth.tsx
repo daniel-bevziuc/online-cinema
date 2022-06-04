@@ -7,6 +7,7 @@ import AuthFields from './AuthFields'
 import { IAuthInput } from './auth.interface'
 import { useAuthRedirect } from './useAuthRedirect'
 
+import { useActions } from '@/hooks/useActions'
 import { useAuth } from '@/hooks/useAuth'
 
 import Button from '@/ui/form-elements/Button'
@@ -25,14 +26,7 @@ const Auth: FC = () => {
 		mode: 'onChange'
 	})
 
-	// Temp --->
-	const login = (data: any) => {
-		alert(`login ${data}`)
-	}
-	const register = (data: any) => {
-		alert(`login ${data}`)
-	}
-	// <---
+	const { login, register } = useActions()
 
 	const onSubmit: SubmitHandler<IAuthInput> = (data) => {
 		if (type === 'login') login(data)
