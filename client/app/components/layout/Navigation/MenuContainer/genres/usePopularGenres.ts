@@ -12,6 +12,5 @@ export const usePopularGenres = () => {
     } as IMenuItem)).splice(0, 4)
   })
 
-
   return queryData
 }
