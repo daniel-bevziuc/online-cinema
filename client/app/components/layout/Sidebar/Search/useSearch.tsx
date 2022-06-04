@@ -3,7 +3,7 @@ import { useQuery } from 'react-query'
 
 import { useDebounce } from '@/hooks/useDebounce'
 
-import { MovieService } from '@/services/movie.service'
+import { MovieService } from '@/services/movie/movie.service'
 
 export const useSearch = () => {
 	const [searchTerm, setSearchTerm] = useState('')

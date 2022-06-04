@@ -3,7 +3,7 @@ import { useQuery } from 'react-query'
 
 import MovieList from '../MovieList'
 
-import { MovieService } from '@/services/movie.service'
+import { MovieService } from '@/services/movie/movie.service'
 
 import SkeletonLoader from '@/ui/SkeletonLoader'
 
