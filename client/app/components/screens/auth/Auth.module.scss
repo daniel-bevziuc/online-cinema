@@ -1,8 +1,8 @@
 .wrapper {
-	@apply mt-20;
+	@apply mt-32;
 
 	> form {
-		@apply mx-auto w-1/2 air-block bg-opacity-90 p-7 text-center;
+		@apply mx-auto w-1/2 air-block bg-opacity-80  p-7 text-center;
 
 		.buttons {
 			@apply mt-12 shadow-lg;

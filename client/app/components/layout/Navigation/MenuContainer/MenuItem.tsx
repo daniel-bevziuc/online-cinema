@@ -3,17 +3,18 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { FC } from 'react'
 
-import styles from './Menu.module.scss'
-import { IMenuItem } from './menu.interface'
+import { MaterialIcon } from '@/ui/icons/MaterialIcon'
 
-import MaterialIcon from '@/components/ui/MaterialIcon'
+import styles from './Menu.module.scss'
+import { IMenuItem } from './menu.types'
 
 const MenuItem: FC<{ item: IMenuItem }> = ({ item }) => {
 	const { asPath } = useRouter()
+
 	return (
 		<li
 			className={cn({
-				[styles.active]: asPath === item.link
+				[styles.active]: asPath === item.link,
 			})}
 		>
 			<Link href={item.link}>
@@ -25,4 +26,5 @@ const MenuItem: FC<{ item: IMenuItem }> = ({ item }) => {
 		</li>
 	)
 }
+
 export default MenuItem

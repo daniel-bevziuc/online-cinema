@@ -6,7 +6,7 @@ import styles from './form.module.scss'
 
 const Button: FC<IButton> = ({ children, className, ...rest }) => {
 	return (
-		<button className={cn(styles.button)} {...rest}>
+		<button className={cn(styles.button, className)} {...rest}>
 			{children}
 		</button>
 	)

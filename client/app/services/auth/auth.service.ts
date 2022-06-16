@@ -1,46 +1,64 @@
-import Cookies from 'js-cookie';
-import { getAuthUrl } from "@/config/api.config"
-import { IAuthResponse } from "@/store/user/user.interface"
-import { axiosClassic } from "api/interceptors"
-import { removeTokensStorage, saveToStorage } from "./auth.helper"
-import { getContentType } from 'api/api.helper';
+import { getContentType } from 'api/api.helpers'
+import axios from 'axios'
+import Cookies from 'js-cookie'
 
+import { API_URL, getAuthUrl } from '@/configs/api.config'
+
+import { IAuthResponse } from '@/store/user/user.interface'
+
+import { removeTokensStorage, saveToStorage } from './auth.helper'
 
 export const AuthService = {
-  async register(email: string, password: string) {
-    const response = await axiosClassic.post<IAuthResponse>(getAuthUrl('/register'), { email, password })
+	async register(email: string, password: string) {
+		const response = await axios.post<IAuthResponse>(
+			`${API_URL}${getAuthUrl('/register')}`,
+			{
+				email,
+				password,
+			}
+		)
 
-    if (response.data.accessToken)
-      saveToStorage(response.data)
+		if (response.data.accessToken) {
+			saveToStorage(response.data)
+		}
 
-    return response
-  },
+		return response
+	},
+	async login(email: string, password: string) {
+		const response = await axios.post<IAuthResponse>(
+			`${API_URL}${getAuthUrl('/login')}`,
+			{
+				email,
+				password,
+			}
+		)
 
-  async login(email: string, password: string) {
-    const response = await axiosClassic.post<IAuthResponse>(getAuthUrl('/login'), { email, password })
+		if (response.data.accessToken) {
+			saveToStorage(response.data)
+		}
 
-    if (response.data.accessToken)
-      saveToStorage(response.data)
+		return response
+	},
+	logout() {
+		removeTokensStorage()
+		localStorage.removeItem('user')
+	},
+	async getNewTokens() {
+		const refreshToken = Cookies.get('refreshToken')
+		const response = await axios.post<IAuthResponse>(
+			`${API_URL}${getAuthUrl('/login/access-token')}`,
+			{
+				refreshToken,
+			},
+			{
+				headers: getContentType(),
+			}
+		)
 
-    return response
-  },
+		if (response.data.accessToken) {
+			saveToStorage(response.data)
+		}
 
-  logout() {
-    removeTokensStorage()
-    localStorage.removeItem('user')
-  },
-
-  async getNewTokens() {
-    const refreshToken = Cookies.get('refreshToken')
-    const response = await axiosClassic.post<IAuthResponse>(
-      getAuthUrl('/login/access-token'),
-      { refreshToken },
-      { headers: getContentType() }
-    )
-
-    if (response.data.accessToken)
-      saveToStorage(response.data)
-
-    return response
-  }
+		return response
+	},
 }

@@ -1,14 +1,11 @@
-import { FC, ReactNode } from 'react'
+import { FC } from 'react'
+
+import Sidebar from './Sidebar/Sidebar'
+import Navigation from './Navigation/Navigation'
 
 import styles from './Layout.module.scss'
-import Navigation from './Navigation/Navigation'
-import Sidebar from './Sidebar/Sidebar'
 
-interface ILayout {
-	children: ReactNode
-}
-
-const Layout: FC<ILayout> = ({ children }) => {
+const Layout: FC = ({ children }) => {
 	return (
 		<div className={styles.layout}>
 			<Navigation />

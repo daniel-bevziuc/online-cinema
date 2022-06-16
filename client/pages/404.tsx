@@ -1,13 +1,10 @@
-import Meta from 'utils/meta/Meta'
-
-import Heading from '@/ui/heading/Heading'
+import Heading from '@/components/ui/heading/Heading'
+import { Meta } from '@/utils/meta'
 
 export default function Error404() {
 	return (
-		<Meta title="Page not found">
-			<div className="text-center text-white font-bold text-3xl text-shadow">
-				<Heading title="404 - Page Not Found" />
-			</div>
+		<Meta title='Page not found'>
+			<Heading title='404 - Page Not Found' />
 		</Meta>
 	)
 }

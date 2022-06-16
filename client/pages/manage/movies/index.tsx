@@ -1,9 +1,11 @@
+import MovieList from '@/screens/admin/movies/MovieList'
+
 import { NextPageAuth } from '@/shared/types/auth.types'
 
-const MoviesListPage: NextPageAuth = () => {
-	return <div>Movies</div>
+const MovieListPage: NextPageAuth = () => {
+	return <MovieList />
 }
 
-MoviesListPage.isOnlyAdmin = true
+MovieListPage.isOnlyAdmin = true
 
-export default MoviesListPage
+export default MovieListPage

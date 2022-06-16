@@ -1,14 +1,16 @@
 import { FC } from 'react'
 
-import MenuItem from '../MenuItem'
-import LogoutButton from './LogoutButton'
-
 import { useAuth } from '@/hooks/useAuth'
 
-import { getAdminHomeUrl } from '@/config/url.config'
+import { getAdminHomeUrl } from '@/configs/url.config'
+
+import MenuItem from '../MenuItem'
+
+import LogoutButton from './LogoutButton'
 
 const AuthItems: FC = () => {
 	const { user } = useAuth()
+
 	return (
 		<>
 			{user ? (
@@ -17,19 +19,13 @@ const AuthItems: FC = () => {
 						item={{
 							icon: 'MdSettings',
 							link: '/profile',
-							title: 'Profile'
+							title: 'Profile',
 						}}
 					/>
 					<LogoutButton />
 				</>
 			) : (
-				<MenuItem
-					item={{
-						icon: 'MdLogin',
-						link: '/auth',
-						title: 'Login'
-					}}
-				/>
+				<MenuItem item={{ icon: 'MdLogin', link: '/auth', title: 'Login' }} />
 			)}
 
 			{user?.isAdmin && (
@@ -37,11 +33,12 @@ const AuthItems: FC = () => {
 					item={{
 						icon: 'MdOutlineLock',
 						link: getAdminHomeUrl(),
-						title: 'Admin panel'
+						title: 'Admin panel',
 					}}
 				/>
 			)}
 		</>
 	)
 }
+
 export default AuthItems

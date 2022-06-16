@@ -1,10 +1,11 @@
 import { FC } from 'react'
-import Meta from 'utils/meta/Meta'
-
-import Statistics from './Statistics/Statistics'
 
 import AdminNavigation from '@/ui/admin-navigation/AdminNavigation'
 import Heading from '@/ui/heading/Heading'
+
+import { Meta } from '@/utils/meta'
+
+import Statistics from './Statistics/Statistics'
 
 const Admin: FC = () => {
 	return (

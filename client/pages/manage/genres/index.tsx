@@ -1,9 +1,11 @@
+import GenreList from '@/screens/admin/genres/GenreList'
+
 import { NextPageAuth } from '@/shared/types/auth.types'
 
-const GenresListPage: NextPageAuth = () => {
-	return <div>Movies</div>
+const GenreListPage: NextPageAuth = () => {
+	return <GenreList />
 }
 
-GenresListPage.isOnlyAdmin = true
+GenreListPage.isOnlyAdmin = true
 
-export default GenresListPage
+export default GenreListPage
